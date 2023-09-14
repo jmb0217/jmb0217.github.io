@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>test</title>
+    <link href="/2023/09/14/test/"/>
+    <url>/2023/09/14/test/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/2023/09/14/test/1.jpg"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>111</title>
     <link href="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
     
-    <content type="html"><![CDATA[<p>qq</p><p>aaaa</p><hr><p>aas</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">&#123;<span class="hljs-symbol">%</span> asset_img <span class="hljs-built_in">example</span>.jpg This <span class="hljs-built_in">is</span> an <span class="hljs-built_in">example</span> <span class="hljs-built_in">image</span> <span class="hljs-symbol">%</span>&#125;<br></code></pre></td></tr></table></figure><img src="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/1.jpg" class=""><p><img src="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/2.jpg"></p><p>:haircut:111</p><p><img src="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/1.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p>qq</p><p>aaaa</p><hr><p>aas</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">&#123;<span class="hljs-symbol">%</span> asset_img <span class="hljs-built_in">example</span>.jpg This <span class="hljs-built_in">is</span> an <span class="hljs-built_in">example</span> <span class="hljs-built_in">image</span> <span class="hljs-symbol">%</span>&#125;<br></code></pre></td></tr></table></figure><p><img src="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/2.jpg"></p><p>:haircut:111</p><p><img src="/2023/09/13/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/1.jpg"></p>]]></content>
     
     
     <categories>
