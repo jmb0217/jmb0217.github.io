@@ -62,7 +62,7 @@
     <link href="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/"/>
     <url>/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="0x01-ICP备案查询"><a href="#0x01-ICP备案查询" class="headerlink" title="0x01. ICP备案查询"></a>0x01. ICP备案查询</h1><h2 id="什么是ICP备案"><a href="#什么是ICP备案" class="headerlink" title="什么是ICP备案"></a><strong>什么是ICP备案</strong></h2><p>ICP备案是指网站在信息产业部提交网站信息进行官方认可。ICP备案实际上就是<strong>域名备案（网站备案）</strong>，域名备案不管是做有偿还是无偿的业务，只要在中国建立网站都需要办理ICP备案，如果不办理的话是不能在国内从事非经营性互联网信息服务的对国内各类网站(包括企业及个人站点)的严格审查工作。<strong>国内使用国内服务器的网站，都必须要先办理ICP备案后才可以上线。</strong></p><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>通过查询目标企业的备案信息，可直接获取到目标企业注册了哪些域名，从而增加可渗透的目标范围。</p><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><font color=red><p>使用<a href="https://beian.miit.gov.cn/#/Integrated/index">国家域名信息备案管理系统</a>进行查询</p></font><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/1.png"></p><p>支持对<code>单位名称</code>、<code>域名</code>、<code>ICP备案号</code>进行查询</p><ul><li>使用单位名称查询</li></ul><p><font color=red>注意需要使用单位全称</font></p><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/3.png"></p><ul><li>使用域名查询</li></ul><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/2.png"></p><ul><li>使用ICP备案号查询</li></ul><p><font color=red>注意需要使用备案号全称 一般位于网站的footer处</font></p><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/4.png"></p><p>可查询的应用包括<code>网站</code>、<code>APP</code>、<code>小程序</code>、<code>快应用</code>等</p><h2 id="第三方查询工具"><a href="#第三方查询工具" class="headerlink" title="第三方查询工具"></a>第三方查询工具</h2><p><a href="https://www.aizhan.com/">爱站</a></p><p><a href="https://icp.chinaz.com/">站长工具</a></p><p><a href="https://www.sec.gov/edgar/searchedgar/companysearch">美国企业备案查询</a></p><p><a href="https://zfwzzc.www.gov.cn/">政府网站查询</a></p><hr><h1 id="0x02-股权信息收集"><a href="#0x02-股权信息收集" class="headerlink" title="0x02 股权信息收集"></a>0x02 股权信息收集</h1><p>通过查询股权信息，或者股权穿透图，寻找子公司和孙公司等，一般对外投资超过50%或者有行政权限的都可以算目标，通过查询子公司，再查询子公司对应的产品，可以大范围的扩大攻击面</p><p><strong>自动化股权信息收集工具</strong> </p><p>主要借助<code>天眼查</code>、<code>企查查</code>、<code>阿拉丁小程序</code>、<code>七麦数据</code>、<code>爱企查</code>等</p><p><a href="https://github.com/wgpsec/ENScan_GO">ENscan_Go</a></p><p><a href="https://github.com/i11us0ry/AScan">AScan</a></p><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/5.png"></p><p><img src="/2023/09/14/%E4%B8%BB%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86/6.png"></p><h1 id="0x03-企业信用信息"><a href="#0x03-企业信用信息" class="headerlink" title="0x03 企业信用信息"></a>0x03 企业信用信息</h1><p><a href="https://shiming.gsxt.gov.cn/socialuser-use-rllogin.html">国家企业信息公示系统</a></p><p><a href="https://www.creditchina.gov.cn/">信用中国</a></p>]]></content>
     
     
     <categories>
@@ -70,8 +70,6 @@
       <category>信息收集</category>
       
       <category>资产收集</category>
-      
-      <category>主域名收集</category>
       
     </categories>
     
