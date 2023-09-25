@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jmb0217.github.io/img/1.jpg">
 <meta property="article:published_time" content="2023-09-14T06:38:24.000Z">
-<meta property="article:modified_time" content="2023-09-19T07:44:26.290Z">
+<meta property="article:modified_time" content="2023-09-22T09:45:22.882Z">
 <meta property="article:author" content="K">
 <meta property="article:tag" content="Web安全">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 字
+          1.2k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -372,7 +372,76 @@
             
               <div class="markdown-body">
                 
-                <p><a target="_blank" rel="noopener" href="https://site.ip138.com/">https://site.ip138.com/</a></p>
+                <p>在HW、攻防演练、众测项目中，外网的信息收集是至关重要的一个环节，外网打点信息收集全面了，可能会有四两拨千斤效果，直接突破外网边界进入内网。子域名是域名信息收集的一个重要部分，在防御措施严密情况下我们无法直接拿下主域名，那么就可以采用迂回战术拿下子域名，然后无限靠近主域名。</p>
+<h2 id="1-公开的DNS数据集">1.公开的DNS数据集</h2>
+<h3 id="0x01-DNS数据集是什么">0x01 DNS数据集是什么</h3>
+<p><a target="_blank" rel="noopener" href="https://opendata.rapid7.com/">Rapid7的开源数据项目</a>收集了多种全互联网范围内的扫描数据，任何人都可下载这些数据，以下主要涉及两个数据集，分别是FDNS和RDNS，可从中获取到大量的子域名信息。</p>
+<h3 id="0x02-数据集使用">0x02 数据集使用</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hackertarget.com/find-dns-host-records/">FDNS</a></li>
+</ul>
+<p>其他相关收集信息的工具也很好用 但是收费😩</p>
+<p><img src="1.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://searchdns.netcraft.com/">RDNS</a></li>
+</ul>
+<p><img src="2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<hr>
+<h2 id="2-在线子域名系统">2.在线子域名系统</h2>
+<p>通过第三方在线平台提供的一些服务，可以快速发现部分子域名。</p>
+<p>网站推荐</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://z.zcjun.com/">在线子域名爆破</a></li>
+<li><a target="_blank" rel="noopener" href="https://dnsdumpster.com/">DNSdumpster</a></li>
+<li><a target="_blank" rel="noopener" href="https://site.ip138.com/">ip138</a></li>
+<li><a target="_blank" rel="noopener" href="https://tool.chinaz.com/subdomain">站长工具-subdomain</a></li>
+<li><a target="_blank" rel="noopener" href="https://zfwzzc.www.gov.cn/">国家政府网站</a>(<code>xxx.gov.cn</code>)</li>
+</ul>
+<p><img src="3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://rapiddns.io/subdomain">subdomain</a></li>
+<li><a target="_blank" rel="noopener" href="https://x.threatbook.com/">微步</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/home/upload">virustotal</a></li>
+</ul>
+<h2 id="3-搜索引擎">3.搜索引擎</h2>
+<h3 id="普通浏览器引擎">普通浏览器引擎</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">site:haier.com -www<br></code></pre></td></tr></table></figure>
+<p><img src="4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="空间搜索引擎">空间搜索引擎</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://securitytrails.com/">securitytrails</a></li>
+<li><a target="_blank" rel="noopener" href="https://search.censys.io/">censys</a></li>
+<li><a target="_blank" rel="noopener" href="https://quake.360.net/quake/#/">360quake</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.shodan.io/domain">shodan</a></li>
+<li><a target="_blank" rel="noopener" href="https://hunter.qianxin.com/">鹰图</a></li>
+<li><a target="_blank" rel="noopener" href="https://fofa.info/">Fofa</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zoomeye.org/">zoomeye</a></li>
+</ul>
+<h2 id="4-信息泄露">4.信息泄露</h2>
+<h3 id="0x01-文件泄露">0x01 文件泄露</h3>
+<h3 id="0x02-代码仓库">0x02 代码仓库</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
+<p><a target="_blank" rel="noopener" href="https://about.gitlab.com/">gitlab</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/">gitee</a></p>
+<p><img src="5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="0x03-内容安全策略">0x03 内容安全策略</h3>
+<p>内容安全策略（CSP，Content Security Policy）是一种声明的安全机制，可以让网站运营者能够控制遵循CSP的用户代理（通常是浏览器）的行为。通过控制要启用哪些功能，以及从哪里下载内容，可以减少网站的攻击面。CSP的主要目的是防御跨站点脚本（cross-ste scripting，XSS）攻击。例如，CSP可以完全禁止内联的JavaScript，并且控制外部代码从哪里加载。它也可以禁止动态代码执行。禁用了所有的攻击源，XSS攻击变得更加困难。CSP中的关键字有default-src、img-src、object-src和script-src。其中*-src可能会存在域名信息。 可使用<code>burpsuite</code>或者<code>awvs</code>类工具对站点进行爬取分析。</p>
+<h2 id="5-构造域名">5.构造域名</h2>
+<h2 id="6-证书透明度">6.证书透明度</h2>
+<h3 id="0x01-原理"><strong>0x01 原理</strong></h3>
+<p>引用谷歌的项目介绍：“要向用户提供加密流量，网站必须先向可信的证书授权中心 (CA) 申请证书。然后，当用户尝试访问相应网站时，此证书即会被提供给浏览器以验证该网站。近年来，由于 HTTPS 证书系统存在结构性缺陷，证书以及签发证书的 CA 很容易遭到入侵和操纵。Google 的证书透明度项目旨在通过提供一个用于监测和审核 HTTPS 证书的开放式框架，来保障证书签发流程安全无虞。” 那么，通过这样的证书透明度项目，我们就可以在其中获取一些有价值的域名。</p>
+<h3 id="0x02-使用">0x02 使用</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://crt.sh/">crtsh</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.entrust.com/ct-search/">entrust</a></li>
+<li><a target="_blank" rel="noopener" href="https://censys.io/certificates">censys</a></li>
+<li><a target="_blank" rel="noopener" href="https://google.com/transparencyreport/https/ct/">google</a></li>
+<li><a target="_blank" rel="noopener" href="https://spyse.com/search/certificate">spyse</a></li>
+<li><a target="_blank" rel="noopener" href="https://sslmate.com/certspotter/api/">certspotter（每小时免费查询100次）</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.facebook.com/tools/ct">facebook（需要登录）</a></li>
+</ul>
+<p>与主域名中的证书查询方法一致</p>
+<p>7.子域名收集工具</p>
 
                 
               </div>
