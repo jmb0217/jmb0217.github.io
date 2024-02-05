@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jmb0217.github.io/img/1.jpg">
 <meta property="article:published_time" content="2023-09-14T06:38:24.000Z">
-<meta property="article:modified_time" content="2023-09-22T09:45:22.882Z">
+<meta property="article:modified_time" content="2023-09-26T07:57:49.981Z">
 <meta property="article:author" content="K">
 <meta property="article:tag" content="Web安全">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          2.8k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          10 分钟
+          23 分钟
         
       </span>
     
@@ -402,6 +402,7 @@
 <li><a target="_blank" rel="noopener" href="https://rapiddns.io/subdomain">subdomain</a></li>
 <li><a target="_blank" rel="noopener" href="https://x.threatbook.com/">微步</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/home/upload">virustotal</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.dnsdb.io/">dnsdb</a></li>
 </ul>
 <h2 id="3-搜索引擎">3.搜索引擎</h2>
 <h3 id="普通浏览器引擎">普通浏览器引擎</h3>
@@ -419,6 +420,7 @@
 </ul>
 <h2 id="4-信息泄露">4.信息泄露</h2>
 <h3 id="0x01-文件泄露">0x01 文件泄露</h3>
+<p>信息泄露问题主要就是某域名下的一些文件会存储与其相关的一些域名，如子域名。此类文件包括跨域策略文件crossdomain.xml， sitemap、robots.txt文件。</p>
 <h3 id="0x02-代码仓库">0x02 代码仓库</h3>
 <p><a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
 <p><a target="_blank" rel="noopener" href="https://about.gitlab.com/">gitlab</a></p>
@@ -426,9 +428,15 @@
 <p><img src="5.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h3 id="0x03-内容安全策略">0x03 内容安全策略</h3>
 <p>内容安全策略（CSP，Content Security Policy）是一种声明的安全机制，可以让网站运营者能够控制遵循CSP的用户代理（通常是浏览器）的行为。通过控制要启用哪些功能，以及从哪里下载内容，可以减少网站的攻击面。CSP的主要目的是防御跨站点脚本（cross-ste scripting，XSS）攻击。例如，CSP可以完全禁止内联的JavaScript，并且控制外部代码从哪里加载。它也可以禁止动态代码执行。禁用了所有的攻击源，XSS攻击变得更加困难。CSP中的关键字有default-src、img-src、object-src和script-src。其中*-src可能会存在域名信息。 可使用<code>burpsuite</code>或者<code>awvs</code>类工具对站点进行爬取分析。</p>
+<h4 id="实现方法">实现方法</h4>
+<p>bp手动抓取HTTP header的Content-Security-Policy属性</p>
 <h2 id="5-构造域名">5.构造域名</h2>
+<h4 id="0x01-原理">0x01 原理</h4>
+<p>根据其他方法收集到大部分的子域名，通过我们日常对域名构造的积累，提取使用较多的描述单词，与收集到的子域名进行重新拼接，验证存活，我们会得到更加全面的子域名收集结果。<a target="_blank" rel="noopener" href="http://xn--manager-ff6kt45e.xxx.com">例如manager.xxx.com</a>，<a target="_blank" rel="noopener" href="http://xn--test-manager-h86s7cz57g5k7cxmts80o.xxx.com">我们可以构造test-manager.xxx.com</a>、devmanager.xxx.com等域名进行验证。</p>
+<h4 id="0x02-利用工具">0x02 利用工具</h4>
+<p><a target="_blank" rel="noopener" href="https://github.com/infosec-au/altdns">altdns</a></p>
 <h2 id="6-证书透明度">6.证书透明度</h2>
-<h3 id="0x01-原理"><strong>0x01 原理</strong></h3>
+<h3 id="0x01-原理-v2"><strong>0x01 原理</strong></h3>
 <p>引用谷歌的项目介绍：“要向用户提供加密流量，网站必须先向可信的证书授权中心 (CA) 申请证书。然后，当用户尝试访问相应网站时，此证书即会被提供给浏览器以验证该网站。近年来，由于 HTTPS 证书系统存在结构性缺陷，证书以及签发证书的 CA 很容易遭到入侵和操纵。Google 的证书透明度项目旨在通过提供一个用于监测和审核 HTTPS 证书的开放式框架，来保障证书签发流程安全无虞。” 那么，通过这样的证书透明度项目，我们就可以在其中获取一些有价值的域名。</p>
 <h3 id="0x02-使用">0x02 使用</h3>
 <ul>
@@ -441,7 +449,47 @@
 <li><a target="_blank" rel="noopener" href="https://developers.facebook.com/tools/ct">facebook（需要登录）</a></li>
 </ul>
 <p>与主域名中的证书查询方法一致</p>
-<p>7.子域名收集工具</p>
+<h2 id="7-子域名收集工具">7.子域名收集工具</h2>
+<h3 id="0x01-OneForAll">0x01 OneForAll</h3>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html">python3 oneforall.py --target example.com run<br>python3 oneforall.py --targets ./example.txt run<br></code></pre></td></tr></table></figure>
+<p><img src="7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="0x02-Subfinder">0x02 Subfinder</h3>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/lijiejie/subDomainsBrute">https://github.com/lijiejie/subDomainsBrute</a></p>
+<p>Subfinder 是一个子域发现工具，它通过使用被动在线资源来发现网站的有效子域。它具有简单的模块化架构，并针对速度进行了优化。 subfinder 是为只做一件事而构建的——被动子域枚举，它做得很好。</p>
+<p>使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">./subfinder -d xxx.com<br></code></pre></td></tr></table></figure>
+<p><img src="9.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="Tools-Chain">Tools Chain</h4>
+<h5 id="dnsx">dnsx</h5>
+<p>从各种来源获得的被动子域列表中过滤活动主机名</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -<span class="hljs-keyword">silent</span> -d hackerone.<span class="hljs-keyword">com</span> | dnsx -<span class="hljs-keyword">silent</span><br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的A记录</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -<span class="hljs-keyword">silent</span> -d hackerone.<span class="hljs-keyword">com</span> | dnsx -<span class="hljs-keyword">silent</span> -<span class="hljs-keyword">a</span> -resp<br></code></pre></td></tr></table></figure>
+<p>提取给定子域名列表的A记录</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -<span class="hljs-keyword">silent</span> -d hackerone.<span class="hljs-keyword">com</span> | dnsx -<span class="hljs-keyword">silent</span> -<span class="hljs-keyword">a</span> -resp-<span class="hljs-keyword">only</span><br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的CNAME记录</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -<span class="hljs-keyword">silent</span> -d hackerone.<span class="hljs-keyword">com</span> | dnsx -<span class="hljs-keyword">silent</span> -cname -resp<br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的ASP记录</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -<span class="hljs-keyword">silent</span> -d hackerone.<span class="hljs-keyword">com</span> | dnsx -<span class="hljs-keyword">silent</span>  -asn<br></code></pre></td></tr></table></figure>
+<h5 id="httpx">httpx</h5>
+<p>探测给定子域名列表的存活状态</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">subfinder -d hackerone.com -silent| httpx -<span class="hljs-built_in">title</span> -tech-detect -status-<span class="hljs-built_in">code</span><br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的Favicon Hash</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -d hackerone.<span class="hljs-keyword">com</span> -<span class="hljs-keyword">silent</span> | httpx -favicon<br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的JARM Fingerprint</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -d hackerone.<span class="hljs-keyword">com</span> -<span class="hljs-keyword">silent</span> | httpx -jarm<br></code></pre></td></tr></table></figure>
+<p>查询给定子域名列表的ASN Fingerprint</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">subfinder -d hackerone.<span class="hljs-keyword">com</span> -<span class="hljs-keyword">silent</span> | httpx -asn<br></code></pre></td></tr></table></figure>
+<h3 id="0x03-Hvvinfo">0x03 Hvvinfo</h3>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ExpLangcn/HvvInfo">https://github.com/ExpLangcn/HvvInfo</a></p>
+<p><img src="6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="0x04-Layer">0x04 Layer</h3>
+<p>Layer子域名挖掘机的使用方法比较简单，在域名对话框中直接输入域名就可以进行扫描，它的显示界面比较细致，有域名、解析IP、开放端口、Web服务器和网站状态等</p>
+<p><img src="8.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="0x05-dnsx">0x05 dnsx</h3>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/projectdiscovery/dnsx">https://github.com/projectdiscovery/dnsx</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">dnsx 是一个快速、多用途的 DNS 工具包，旨在通过 retryabledns 库运行各种探测。它支持多个 DNS 查询、用户提供的解析器、DNS 通配符过滤（如 shuffledns 等）<br></code></pre></td></tr></table></figure>
 
                 
               </div>
